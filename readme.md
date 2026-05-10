@@ -5,3 +5,11 @@ The publisher sends 5 events in one run. Each event is a UserCreatedEventMessage
 
 ### b. The url amqp://guest:guest@localhost:5672 is the same as in the subscriber program, what does it mean?
 It means the publisher and the subscriber connect to the same RabbitMQ broker, using the same username, password, and port. This is important because the publisher needs to send the events to the same place where the subscriber is listening. If the URL is different, the two programs would connect to different brokers and the subscriber would not receive any message from the publisher.
+
+## Running RabbitMQ as message broker
+Below is the screenshot of the running RabbitMQ management UI at http://localhost:15672:
+
+![rabbitmq.png](images/rabbitmq.png)
+
+
+
