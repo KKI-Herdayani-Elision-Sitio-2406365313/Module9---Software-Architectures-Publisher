@@ -9,7 +9,5 @@ It means the publisher and the subscriber connect to the same RabbitMQ broker, u
 ## Running RabbitMQ as message broker
 Below is the screenshot of the running RabbitMQ management UI at http://localhost:15672:
 
-![rabbitmq.png](images/rabbitmq.png)
-
-
+![img.png](images/img.png)
 
