@@ -1,6 +1,7 @@
 # Publisher
 
-### a. How much data your publisher program will send to the message broker in one run?
+### a. How much d
+ata your publisher program will send to the message broker in one run?
 The publisher sends 5 events in one run. Each event is a UserCreatedEventMessage that contains two fields, user_id and user_name. The five events are for users with id 1 to 5 and names Amir, Budi, Cica, Dira, and Emir. So in total, the publisher pushes 5 messages to the user_created queue every time it is executed.
 
 ### b. The url amqp://guest:guest@localhost:5672 is the same as in the subscriber program, what does it mean?
@@ -10,4 +11,12 @@ It means the publisher and the subscriber connect to the same RabbitMQ broker, u
 Below is the screenshot of the running RabbitMQ management UI at http://localhost:15672:
 
 ![img.png](images/img.png)
+
+## Sending and processing event
+
+Screenshot below shows the publisher console (left) sending 5 events, and the subscriber console (right) receiving and processing them:
+
+![img_1.png](images/img_1.png)
+![helo.png](images/imgrun.png)
+When cargo run is executed in the publisher directory, the publisher opens a connection to RabbitMQ at amqp://guest:guest@localhost:5672, serializes 5 UserCreatedEventMessag and publishes them to the user_created queue. The subscriber, through its UserCreatedHandler::handle callback and prints the received message. 
 
