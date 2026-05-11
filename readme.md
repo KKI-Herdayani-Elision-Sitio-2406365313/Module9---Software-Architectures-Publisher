@@ -20,3 +20,7 @@ Screenshot below shows the publisher console (left) sending 5 events, and the su
 ![helo.png](images/imgrun.png)
 When cargo run is executed in the publisher directory, the publisher opens a connection to RabbitMQ at amqp://guest:guest@localhost:5672, serializes 5 UserCreatedEventMessag and publishes them to the user_created queue. The subscriber, through its UserCreatedHandler::handle callback and prints the received message. 
 
+## Monitoring chart based on publisher
+![cargorun.png](images/cargorun.png)
+Each spike on the message rate chart corresponds to a cargo run instruction of the publisher. 
+
