@@ -24,3 +24,10 @@ When cargo run is executed in the publisher directory, the publisher opens a con
 ![cargorun.png](images/cargorun.png)
 Each spike on the message rate chart corresponds to a cargo run instruction of the publisher. 
 
+## Simulation slow subscriber
+
+![slowsubsriber.png](images/slowsubsriber.png)
+
+After uncommenting thread::sleep(ten_millis) in the handler, the subscriber takes about 1 second to process each message. When I run the publisher several times in a row, the publisher sends events much faster than the subscriber can process them, so the messages start to pile up in the queue.
+
+In my run, the queue reached N messages at the highest point. The number matches the total number of events sent by the publisher, which is the number of cargo run times 5, minus the events that the subscriber already finished processing during that time. In the tutorial example the peak was 20, which fits 4 publisher runs (4 × 5 = 20) executed faster than the subscriber could keep up. This is the reason why we use a message broker. The queue holds the events while the subscriber is still slow, so the publisher does not need to wait and no event is lost.
